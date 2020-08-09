@@ -1,0 +1,190 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    color: black;
+    font-size: 1.2rem;
+    font-family: 'Recursive', sans-serif;
+    background-color: forestgreen;
+}
+header{
+    background-color: gold;
+   width: 100%;
+   height: 180px;
+   position: fixed;
+   z-index: 5;
+   border-bottom-right-radius:10px ;
+   border-bottom-left-radius:10px ;
+}
+.app-name{
+    text-align: center;
+    font-size: 2rem;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+}
+.app-name span{
+    font-size: .8rem;
+}
+#input{
+    width: 90%;
+    height: 30px;
+    float: left;
+    position: absolute;
+    border-radius: 2rem;
+    border: 2px solid gold;
+    padding: .5rem ;
+    margin-bottom: 1rem;
+    color: black;
+    outline: none;
+    text-indent: 15px;
+    margin-left: .2rem;
+}
+#input::placeholder{
+    opacity: 0.75;
+}
+#addButton{
+     font-size: 1.5rem;
+    background-color:white;
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    color: rgba(255, 215, 0, 0.5);
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    right:10px;
+    cursor: pointer;
+}
+#addButton:hover{
+    color: gold;
+}
+main{
+    padding-top: 180px;
+}
+.container{
+    padding:20px ;
+}
+.item li{
+    padding: 15px 100px 15px 15px;
+    background-color: gold;
+    color: white;
+    font-weight: 400;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 1rem;
+    border-radius: 0 10px;
+    list-style: none;
+}
+.item li:last-of-type{
+    margin: 0;
+}
+.item li input{
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    color: black;
+}
+.buttons{
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.item li button{
+    width: 50px;
+    height: 50px;
+    float: left;
+    background: none;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    font-size: 25px;
+}
+.item li .buttons button:last-of-type::before{
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    background-color: white;
+}
+.edit{
+    color: rgba(255, 255, 255, 0.5);
+}
+.edit:hover{
+    color: white;
+}
+.remove{
+    color:rgba(178, 34, 34, 0.5);
+}
+.remove:hover{
+    color: firebrick;
+}
+footer{
+    color: black;
+    font-size: .8rem;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: gold;
+    padding: .2rem;
+    border-top-right-radius:10px ;
+    border-top-left-radius:10px ;
+}
+@media only screen and (min-width: 768px){
+    
+    #input{
+        width: 70%;
+        font-size: 1.2rem;
+        margin: 0 14%;
+        float: none;
+    }
+    #addButton{
+        right: 85px;
+    }
+    .container{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .item li input{
+        font-size: 1.2rem;
+    }
+    footer{
+        font-size: 1rem;
+    }
+    .item li{
+        margin-bottom: 20px;
+    }
+}
+@media only screen and (min-width: 1024px){
+    .container{
+        width: 85%;
+    }
+    #input{
+        width: 80%;
+        margin: 0 10%;
+    }
+}
+@media only screen and (min-width: 1440px){
+    #input{
+        width: 90%;
+        margin: 0 4.5%;
+        padding: .8rem;
+    }
+    #addButton{
+        right: 50px;
+        height: 60px;
+        width: 60px;
+    }
+    footer{
+        font-size: 1.2rem;
+    }
+}
