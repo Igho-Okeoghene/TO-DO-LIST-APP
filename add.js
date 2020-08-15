@@ -2,15 +2,16 @@
 let arr = [];
 showTodo()
 //push the objects in the array
-function addEntry(todo){
+function addEntry(){
+    let id = arr.length+1;
     todo = document.getElementById('input').value;
   //check if input field is empty  
     if(todo !== ''){
-        arr.push(todo);
         createHTML(todo);
         document.getElementById("input").value = "";
+        arr.push({id,todo});
+        arrUpdate();
     }
-    arrUpdate();
 };
 
 //when the add button is clicked
@@ -26,7 +27,8 @@ function showTodo(){
     if(storage !== null){
         arr = JSON.parse(localStorage.getItem('todoList'));
         for(var i = 0; i < arr.length; i++){
-        var value = arr[i];
+        var firstValue = arr[i];
+        let value = firstValue.todo;
         createHTML(value);
     }
 }
@@ -75,10 +77,10 @@ function createHTML(todo){
         let elem = dValue.value;
 
         //remove the edit from the arr
-        let index = arr.indexOf(elem);
-        let splice =  arr.splice(index,1);
+        arr = arr.filter(item => item.todo !== elem);
+        //let index = arr.indexOf(elem);
+        //let splice =  arr.splice(index,1);
         localStorage.setItem('todoList', JSON.stringify(arr));
-        console.log(splice)
         saveInput.value = elem;
         addButton.style.display = "none";
         input.style.display ="none";
@@ -106,9 +108,8 @@ function createHTML(todo){
        let storage = localStorage.getItem('todoList');
        arr = JSON.parse(localStorage.getItem('todoList'));
        todo = dValue.value;
-       let index = arr.indexOf(todo);
-       let splice =  arr.splice(index,1);
-        localStorage.setItem('todoList', JSON.stringify(arr))
+       arr = arr.filter(item => item.todo !== todo);
+       localStorage.setItem('todoList', JSON.stringify(arr));
     };
 
     //append all elements to the html
@@ -121,7 +122,7 @@ function createHTML(todo){
     list.insertBefore(li, list.childNodes[0]);
 }
 
-    //save todo
+    //save todo button
     let savebtn = document.getElementById("savebtn");
     savebtn.addEventListener("click", saveEntry);
     window.addEventListener('keydown',(e) => {
@@ -131,11 +132,11 @@ function createHTML(todo){
     });
     
     function saveEntry(){
-        let newInput = document.getElementById('saveInput').value;
-        
-        if(newInput !== ''){
-            arr.push(newInput);
-            createHTML(newInput);
+        let todo = document.getElementById('saveInput').value;
+        let id = arr.length+1;
+        if(todo !== ''){
+            createHTML(todo);
+            arr.push({id,todo});
             localStorage.setItem('todoList', JSON.stringify(arr));
             addButton.style.display = "block";
             input.style.display ="block";
