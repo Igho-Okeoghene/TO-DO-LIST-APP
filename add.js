@@ -7,6 +7,7 @@ function addEntry(){
   //check if input field is empty  
     if(todo !== ''){
         arr.push(todo);
+        return arr;
         createHTML(todo);
         document.getElementById("input").value = "";
     }
