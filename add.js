@@ -2,7 +2,7 @@
 let arr = [];
 showTodo()
 //push the objects in the array
-function addEntry(todo){
+function addEntry(){
     todo = document.getElementById('input').value;
   //check if input field is empty  
     if(todo !== ''){
