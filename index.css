@@ -197,6 +197,9 @@ footer{
     .right{
         right: 35px;
     }
+    .bigContainer{
+        height: 310px;
+    }
 }
 @media only screen and (min-width: 605px){
     .left-bottom{
@@ -204,6 +207,9 @@ footer{
     }
     .right{
         right: 85px;
+    }
+    .bigContainer{
+        height: 380px;
     }
 }
 @media only screen and (min-width: 757px){
