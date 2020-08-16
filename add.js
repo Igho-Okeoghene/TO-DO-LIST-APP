@@ -3,21 +3,26 @@ let arr = [];
 showTodo()
 //push the objects in the array
 function addEntry(){
-    let id = arr.length+1;
-    todo = document.getElementById('input').value;
-  //check if input field is empty  
-    if(todo !== ''){
+    let todo = document.getElementById('input').value;
+    var obj = {
+     //"id" : arr.length + 1,
+    'task' : todo
+    }
+  //check if input field is empty
+    if(todo !== ""){
         createHTML(todo);
-        document.getElementById("input").value = "";
-        arr.push({id,todo});
+        arr.push(obj);
         arrUpdate();
+        document.getElementById("input").value = "";
+    }else{
+        document.getElementById("input").value = "";
     }
 };
 
 //when the add button is clicked
 document.getElementById("addButton").addEventListener("click", addEntry);
 window.addEventListener('keydown',(e) => {
-    if(e.which == 13 || e.keycode == 13){
+    if(e.which == 13 || e.keycode == 13){ 
         addEntry();
     }
 });
@@ -28,7 +33,7 @@ function showTodo(){
         arr = JSON.parse(localStorage.getItem('todoList'));
         for(var i = 0; i < arr.length; i++){
         var firstValue = arr[i];
-        let value = firstValue.todo;
+        let value = firstValue.task;
         createHTML(value);
     }
 }
@@ -77,10 +82,19 @@ function createHTML(todo){
         let elem = dValue.value;
 
         //remove the edit from the arr
-        arr = arr.filter(item => item.todo !== elem);
+        var obj = {
+          'task': elem
+       };
+        for(var i = arr.length - 1; i>=0; i--){
+           if(arr[i]['task'] === obj['task'])
+         arr.splice(i,1);
+         localStorage.setItem('todoList', JSON.stringify(arr));
+        }
+
+        //arr = arr.filter(item => item.todo !== elem);
         //let index = arr.indexOf(elem);
         //let splice =  arr.splice(index,1);
-        localStorage.setItem('todoList', JSON.stringify(arr));
+       
         saveInput.value = elem;
         addButton.style.display = "none";
         input.style.display ="none";
@@ -105,10 +119,14 @@ function createHTML(todo){
         var item = this.parentNode.parentNode;
         var parent = item.parentNode;
         parent.removeChild(item);
-       let storage = localStorage.getItem('todoList');
-       arr = JSON.parse(localStorage.getItem('todoList'));
        todo = dValue.value;
-       arr = arr.filter(item => item.todo !== todo);
+       var obj = {
+          'task': todo
+       };
+       for(var i = arr.length - 1; i>=0; i--){
+           if(arr[i]['task'] === obj['task'])
+           arr.splice(i,1);
+       }
        localStorage.setItem('todoList', JSON.stringify(arr));
     };
 
@@ -131,17 +149,25 @@ function createHTML(todo){
         }
     });
     
-    function saveEntry(){
-        let todo = document.getElementById('saveInput').value;
-        let id = arr.length+1;
-        if(todo !== ''){
-            createHTML(todo);
-            arr.push({id,todo});
-            localStorage.setItem('todoList', JSON.stringify(arr));
+  function saveEntry(){
+        let elem = document.getElementById('saveInput').value;
+        var obj = {
+            'task': elem
+         };
+         //localStorage.getItem('todoList')
+         //arr = JSON.parse(localStorage.getItem('todoList'));
+        //let id = arr.length+1;
+        if(elem !== ""){
+           createHTML(elem);
+            arr.push(obj);
+            arrUpdate();
+            
+        }
+           // localStorage.setItem('todoList', JSON.stringify(arr));
             addButton.style.display = "block";
             input.style.display ="block";
             saveInput.style.display = "none";
             savebtn.style.display = "none";
             document.getElementById("input").value = "";
-        }
+        
     };
