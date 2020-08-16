@@ -3,7 +3,7 @@ let arr = [];
 showTodo()
 //push the objects in the array
 function addEntry(){
-    let todo = document.getElementById('input').value;
+    var todo = document.getElementById('input').value;
     var obj = {
      //"id" : arr.length + 1,
     'task' : todo
