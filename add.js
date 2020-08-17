@@ -1,20 +1,16 @@
 //declare the array
 let arr = [];
-console.log(typeof(arr))
-//showTodo()
+showTodo();
 //push the objects in the array
 function addEntry(){
     var todo = document.getElementById('input').value;
     var obj = {
-     //"id" : arr.length + 1,
     'task' : todo
     }
   //check if input field is empty
     if(todo !== ""){
         createHTML(todo);
         arr.push(obj);
-        console.log(arr)
-        console.log(typeof(arr))
         arrUpdate();
         document.getElementById("input").value = "";
     }else{
@@ -31,13 +27,14 @@ window.addEventListener('keydown',(e) => {
 });
 //check if local storage is empty on load
 function showTodo(){
-    let storage = localStorage.getItem('todoList');
+    var storage = localStorage.getItem('todoList');
     if(storage !== null){
-        arr = JSON.parse(localStorage.getItem('todoList'));
-        for(var i = 0; i < arr.length; i++){
-        var firstValue = arr[i];
+       var arr2 = JSON.parse(storage);
+        for(var i = 0; i < arr2.length; i++){
+        var firstValue = arr2[i];
         let value = firstValue.task;
         createHTML(value);
+        arr.push(firstValue)
     }
 }
 };
