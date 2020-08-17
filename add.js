@@ -1,6 +1,7 @@
 //declare the array
 let arr = [];
-showTodo()
+console.log(typeof(arr))
+//showTodo()
 //push the objects in the array
 function addEntry(){
     var todo = document.getElementById('input').value;
@@ -12,6 +13,8 @@ function addEntry(){
     if(todo !== ""){
         createHTML(todo);
         arr.push(obj);
+        console.log(arr)
+        console.log(typeof(arr))
         arrUpdate();
         document.getElementById("input").value = "";
     }else{
