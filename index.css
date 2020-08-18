@@ -82,6 +82,8 @@ main{
 }
 .container{
     padding:20px ;
+    height: 280px;
+    overflow: auto;
 }
 .item li{
     padding: 15px 85px 15px 32px;
@@ -127,7 +129,7 @@ main{
     color: rgba(0, 0, 0, 0.5);
 }
 .done{
-    color: white;
+    color: green;
 }
 .item li .edit, .item li .remove{
     width: 50px;
@@ -212,6 +214,17 @@ footer{
         height: 380px;
     }
 }
+@media only screen and (min-width: 720px){
+.left-bottom {
+    left: 149px;
+}
+.right {
+    right: 143px;
+}
+.bigContainer {
+    height: 490px;
+}
+}
 @media only screen and (min-width: 757px){
 .left-bottom{
     left: 166px;
@@ -219,11 +232,14 @@ footer{
 .right{
     right: 161px;
 }
+.bigContainer {
+    height: 500px;
+}
 }
 @media only screen and (min-width: 768px){
     .bigContainer {
         width: 500px;
-        height: 650px;
+        height: 800px;
     }
     header {
         width: 500px;
@@ -253,6 +269,9 @@ footer{
     width: 353px;
     height: 335px;
     }
+    .container {
+        height: 500px;
+    }
 }
 @media only screen and (min-width: 1009px){
     .right{
@@ -260,6 +279,12 @@ footer{
     }
     .left-bottom{
         left: 183px;
+    }
+    .bigContainer {
+        height: 650px;
+    }
+    .container {
+        height: 380px;
     }
 }
 @media only screen and (min-width: 1024px){
@@ -273,6 +298,9 @@ footer{
         right: 179px;
         width: 439px;
     }
+    .container {
+        height: 400px;
+    }
 }
 @media only screen and (min-width: 1366px){
     .left-bottom{
@@ -282,10 +310,16 @@ footer{
             right: 332px;
             width: 517px;
     }
+    .bigContainer {
+        height: 600px;
+    }
+    .container {
+        height: 320px;
+    }
 }
 @media only screen and (min-width: 1440px){
     .bigContainer {
-        height: 980px;
+        height: 800px;
         width: 800px;
     }
     header {
@@ -323,6 +357,10 @@ footer{
     .right {
         height: 709px;
         width: 747px;
+        right: 178px;
+    }
+    .container {
+        height: 400px;
     }
 }
 @media only screen and (min-width: 1514px){
@@ -333,6 +371,12 @@ footer{
 .right{
     right: 213px;
 }
+.bigContainer {
+    height: 950px;
+}
+.container {
+    height: 600px;
+}
 }
 @media only screen and (min-width: 2560px){
     body{
@@ -340,8 +384,11 @@ footer{
     }
     .bigContainer{
         border-radius: 0 5rem;
-        height: 2000px;
+        height: 1800px;
     width: 1500px;
+    }
+    .container {
+        height: 1200px;
     }
     header {
         width: 2000px;
