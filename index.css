@@ -167,7 +167,7 @@ footer{
     position: fixed;
     width: 295px;
     padding: .2rem;
-    bottom: 0;
+   margin-top: .5rem;
     border-radius: 2rem 0;
 }
 @media only screen and (min-width: 425px){
@@ -190,6 +190,14 @@ footer{
         display: flex;
         position: fixed;
         top: 150px; 
+    }
+}
+@media only screen and (min-width: 480px){
+    .left-bottom{
+        left:28px;
+    }
+    .right{
+        right: 24px;
     }
 }
 @media only screen and (min-width: 504px){
@@ -302,12 +310,26 @@ footer{
         height: 400px;
     }
 }
+@media only screen and (min-width: 1200px){
+.right {
+    right: 266px;
+    height: 557px;
+}
+.left-bottom{
+    left: 288px;
+    height: 343px;
+}
+.bigContainer {
+    top: 60px;
+}
+
+}
 @media only screen and (min-width: 1366px){
     .left-bottom{
-        left: 364px;
+        left: 370px;
     }
     .right{
-            right: 332px;
+            right: 339px;
             width: 517px;
     }
     .bigContainer {
@@ -349,13 +371,14 @@ footer{
         width: 760px;
         padding: 1.2rem;
         font-size: 1.2rem;
+        margin-top: 3rem;
     }
     .left-bottom {
         left: 209px;
-        width: 460px;
+        width: 565px;
     }
     .right {
-        height: 709px;
+        height: 876px;
         width: 747px;
         right: 178px;
     }
@@ -365,8 +388,8 @@ footer{
 }
 @media only screen and (min-width: 1514px){
 .left-bottom{
-    height: 341px;
-    left: 281px;
+    height: 395px;
+    left: 266px;;
 }
 .right{
     right: 213px;
@@ -419,6 +442,7 @@ footer{
         width: 1440px;
         padding: 2rem;
         font-size: 2rem;
+        margin-top: 5rem;
     }
     .left-bottom {
         left: 408px;

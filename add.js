@@ -61,7 +61,6 @@ function createHTML(todo){
     check.addEventListener("click", message)
     function message(){
         check.classList.add('done');
-       // check.innerHTML = `<i class="fa fa-pencil-square" aria-hidden="true"></i>`;
         alert("NICE JOB!!")
     };
 
@@ -90,10 +89,6 @@ function createHTML(todo){
          arr.splice(i,1);
          localStorage.setItem('todoList', JSON.stringify(arr));
         }
-
-        //arr = arr.filter(item => item.todo !== elem);
-        //let index = arr.indexOf(elem);
-        //let splice =  arr.splice(index,1);
        
         saveInput.value = elem;
         addButton.style.display = "none";
@@ -154,9 +149,7 @@ function createHTML(todo){
         var obj = {
             'task': elem
          };
-         //localStorage.getItem('todoList')
-         //arr = JSON.parse(localStorage.getItem('todoList'));
-        //let id = arr.length+1;
+      
         if(elem !== ""){
            createHTML(elem);
             arr.push(obj);
